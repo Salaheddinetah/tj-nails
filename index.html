@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TJ’s Beauty Spa &amp; Nails – Naglar, fransar och fotvård i Malmö</title>
+<meta name="description" content="Naglar, fransar, fotvård och spa på Fredsgatan i Malmö. Se priser och boka tid online.">
+<meta name="theme-color" content="#1c1416">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --blush: #f4dcd4;
+  --blush-deep: #e9b9ad;
+  --paper: #fffaf6;
+  --ink: #1c1416;
+  --gold: #8a6a1f;
+  --line: rgba(0, 0, 0, 0.08);
+  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --bar-h: 64px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom, 0px));
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+.skip {
+  position: absolute; left: -999px; top: 8px;
+  background: var(--ink); color: #fff; padding: 10px 14px; z-index: 100;
+}
+.skip:focus { left: 8px; }
+
+.wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 52px; padding: 0 28px;
+  font: 700 1rem/1 var(--body);
+  text-decoration: none; text-align: center;
+  border: 2px solid var(--ink); border-radius: 0;
+  cursor: pointer;
+}
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: #3a2a2e; }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: #fff; }
+
+/* ---------- Top bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.logo { font-family: var(--display); font-weight: 700; font-size: 1.25rem; text-decoration: none; line-height: 1.05; }
+.logo small { display: block; font-family: var(--body); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.02em; opacity: 0.7; }
+.topbar nav { display: none; gap: 24px; margin-right: 24px; }
+.topbar nav a { text-decoration: none; font-weight: 500; }
+.topbar nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.topbar .right { display: flex; align-items: center; }
+.topbar .btn { min-height: 44px; padding: 0 20px; }
+
+/* ---------- Hero ---------- */
+.hero { background: var(--blush); border-bottom: 1px solid var(--line); overflow: hidden; }
+.hero .wrap { display: grid; gap: 28px; padding-top: 40px; padding-bottom: 0; }
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 11vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+}
+.hero h1 em { font-weight: 500; }
+.hero p { margin: 0 0 24px; font-size: 1.125rem; max-width: 30ch; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero .meta { margin: 20px 0 0; font-size: 0.9375rem; }
+.hero-photo { width: 68%; margin-left: auto; aspect-ratio: 9 / 16; object-fit: cover; border: 6px solid var(--paper); border-bottom: 0; }
+
+/* ---------- Sections ---------- */
+section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.9rem, 7vw, 2.8rem); line-height: 1.05; margin: 0 0 12px; letter-spacing: -0.01em; }
+.lead { margin: 0 0 28px; max-width: 52ch; }
+
+/* ---------- Pricing ---------- */
+.price-group { border-top: 1px solid var(--line); }
+.price-group:last-of-type { border-bottom: 1px solid var(--line); }
+.price-group summary {
+  list-style: none; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 0; min-height: 56px;
+  font-family: var(--display); font-weight: 700; font-size: 1.35rem;
+}
+.price-group summary::-webkit-details-marker { display: none; }
+.price-group summary::after { content: "+"; font-family: var(--body); font-weight: 500; font-size: 1.6rem; line-height: 1; }
+.price-group[open] summary::after { content: "–"; }
+.price-group ul { list-style: none; margin: 0; padding: 0 0 8px; }
+.price-group li {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  padding: 13px 0; border-top: 1px solid var(--line);
+}
+.price-group li span small { display: block; font-size: 0.875rem; opacity: 0.7; }
+.price-group li b { white-space: nowrap; font-weight: 700; }
+.note { margin: 20px 0 24px; font-size: 0.9375rem; }
+
+/* ---------- Gallery (9:16) ---------- */
+.gallery { background: var(--ink); color: #fff; }
+.gallery .wrap { margin-bottom: 24px; }
+.gallery h2 { color: #fff; }
+.gallery .lead { margin-bottom: 0; }
+.reel {
+  display: flex; gap: 12px; overflow-x: auto;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+  padding: 0 20px 8px;
+}
+.reel figure { margin: 0; flex: 0 0 72%; max-width: 320px; scroll-snap-align: center; }
+.reel img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #333; }
+.reel figcaption { padding-top: 10px; font-size: 0.9375rem; opacity: 0.85; }
+.gallery .more { margin-top: 24px; }
+.gallery .btn-ghost { color: #fff; border-color: #fff; }
+.gallery .btn-ghost:hover { background: #fff; color: var(--ink); }
+
+/* ---------- Visit ---------- */
+.visit-grid { display: grid; gap: 36px; }
+address { font-style: normal; font-size: 1.125rem; margin-bottom: 20px; }
+.hours { margin: 0; }
+.hours div { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--line); }
+.hours div:last-child { border-bottom: 1px solid var(--line); }
+.hours dt { font-weight: 500; }
+.hours dd { margin: 0; font-weight: 700; }
+.visit-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---------- Footer ---------- */
+footer { background: var(--blush); padding: 40px 0 32px; font-size: 0.9375rem; }
+footer .cols { display: grid; gap: 28px; }
+footer h3 { font-family: var(--display); font-size: 1.2rem; margin: 0 0 8px; }
+footer ul { list-style: none; margin: 0; padding: 0; }
+footer li { padding: 4px 0; }
+footer .legal { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); opacity: 0.8; }
+
+/* ---------- Mobile action bar ---------- */
+.actionbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+  background: var(--paper); border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.actionbar a {
+  display: flex; align-items: center; justify-content: center;
+  height: var(--bar-h); font-weight: 700; text-decoration: none;
+}
+.actionbar a:first-child { background: var(--ink); color: #fff; }
+.actionbar a + a { border-left: 1px solid var(--line); }
+
+/* ---------- Larger screens ---------- */
+@media (min-width: 760px) {
+  body { padding-bottom: 0; }
+  .actionbar { display: none; }
+  .topbar nav { display: flex; }
+  .hero .wrap { grid-template-columns: 1.15fr 0.85fr; align-items: end; padding-top: 72px; gap: 48px; }
+  .hero .copy { padding-bottom: 72px; }
+  .hero-photo { width: 100%; max-width: 380px; margin-left: 0; transform: translateY(0); }
+  .reel { max-width: 1080px; margin: 0 auto; padding: 0 20px 8px; overflow-x: visible; display: grid; grid-template-columns: repeat(3, 1fr); }
+  .reel figure { flex: none; max-width: none; }
+  .visit-grid { grid-template-columns: 1fr 1fr; gap: 64px; }
+  footer .cols { grid-template-columns: 1.2fr 1fr 1fr; }
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#priser">Hoppa till priser</a>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="TJ’s Beauty Spa &amp; Nails, startsidan">
+      TJ’s Beauty Spa &amp; Nails
+      <small>Malmö</small>
+    </a>
+    <div class="right">
+      <nav aria-label="Huvudmeny">
+        <a href="#priser">Priser</a>
+        <a href="#bilder">Bilder</a>
+        <a href="#hitta-hit">Hitta hit</a>
+      </nav>
+      <a class="btn btn-primary" href="https://www.bokadirekt.se/places/tjs-beauty-spa-nails-41441">Boka tid</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="copy">
+        <h1>Naglar, fransar <em>och</em> fotvård i Malmö</h1>
+        <p>Skönhet med omtanke. Boka online på någon minut.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://www.bokadirekt.se/places/tjs-beauty-spa-nails-41441">Boka tid</a>
+          <a class="btn btn-ghost" href="tel:+46728018888">Ring 072-801 88 88</a>
+        </div>
+        <p class="meta">Fredsgatan 10, Malmö · Öppet idag från 10:00</p>
+      </div>
+      <img class="hero-photo" src="images/naglar-svart-fransk.jpg" width="640" height="1138" alt="Mandelformade naglar med svart fransk kant, svarta vågiga linjer och glitter">
+    </div>
+  </div>
+
+  <!-- PRISER -->
+  <section id="priser" aria-labelledby="priser-h">
+    <div class="wrap">
+      <h2 id="priser-h">Priser</h2>
+      <p class="lead">Ett urval av våra mest bokade behandlingar. Hela prislistan och lediga tider finns hos Bokadirekt.</p>
+
+      <details class="price-group" open>
+        <summary>Naglar – gelé</summary>
+        <ul>
+          <li><span>Nytt set gelé, naturell rosa<small>50 min</small></span><b>400 kr</b></li>
+          <li><span>Nytt set gelé, en färg<small>60 min</small></span><b>450 kr</b></li>
+          <li><span>Nytt set gelé, ombré / glitter / fransk<small>60 min</small></span><b>499 kr</b></li>
+          <li><span>Påfyllning gelé, naturell rosa<small>50 min</small></span><b>350 kr</b></li>
+          <li><span>Påfyllning gelé, en färg<small>60 min</small></span><b>420 kr</b></li>
+          <li><span>Ta bort gelé / akryl<small>15 min</small></span><b>från 150 kr</b></li>
+        </ul>
+      </details>
+
+      <details class="price-group">
+        <summary>Naglar – akryl</summary>
+        <ul>
+          <li><span>Nytt set akryl, naturell rosa<small>60 min</small></span><b>450 kr</b></li>
+          <li><span>Nytt set akryl, fransk / ombré<small>60 min</small></span><b>580 kr</b></li>
+          <li><span>Påfyllning akryl, naturell rosa<small>50 min</small></span><b>400 kr</b></li>
+          <li><span>Påfyllning akryl, med färg<small>60 min</small></span><b>450 kr</b></li>
+          <li><span>Påfyllning akryl, fransk / ombré / glitter<small>60 min</small></span><b>499 kr</b></li>
+        </ul>
+      </details>
+
+      <details class="price-group">
+        <summary>Fransar</summary>
+        <ul>
+          <li><span>Nytt set volym<small>80 min</small></span><b>750 kr</b></li>
+          <li><span>Påfyllning volym<small>80 min</small></span><b>650 kr</b></li>
+          <li><span>Påfyllning singel<small>60 min</small></span><b>550 kr</b></li>
+          <li><span>Nytt set megavolym<small>95 min</small></span><b>från 899 kr</b></li>
+          <li><span>Lash lift<small>50 min</small></span><b>399 kr</b></li>
+          <li><span>Färgning fransar &amp; bryn<small>30 min</small></span><b>295 kr</b></li>
+        </ul>
+      </details>
+
+      <details class="price-group">
+        <summary>Spa pedikyr &amp; fotvård</summary>
+        <ul>
+          <li><span>Spa pedikyr med nagellack<small>50 min</small></span><b>480 kr</b></li>
+          <li><span>Spa pedikyr med gellack<small>50 min</small></span><b>500 kr</b></li>
+          <li><span>Spa pedikyr, gellack fransk<small>60 min</small></span><b>550 kr</b></li>
+          <li><span>Spa pedikyr för män<small>40 min, inkl. 10 min massage</small></span><b>500 kr</b></li>
+          <li><span>Fotvård utan lack<small>40 min</small></span><b>480 kr</b></li>
+          <li><span>Spa fotmassage<small>20 min</small></span><b>350 kr</b></li>
+          <li><span>Spa fotmassage<small>30 min</small></span><b>450 kr</b></li>
+        </ul>
+      </details>
+
+      <details class="price-group">
+        <summary>Spa manikyr</summary>
+        <ul>
+          <li><span>Spa manikyr, vanligt lack<small>30 min</small></span><b>300 kr</b></li>
+          <li><span>Spa manikyr, gellack<small>30 min</small></span><b>350 kr</b></li>
+          <li><span>Spa manikyr, gellack fransk<small>40 min</small></span><b>370 kr</b></li>
+        </ul>
+      </details>
+
+      <details class="price-group">
+        <summary>Paketpriser</summary>
+        <ul>
+          <li><span>Manikyr + pedikyr utan färg<small>60 min</small></span><b>650 kr</b></li>
+          <li><span>Spa pedikyr + manikyr med gellack<small>80 min</small></span><b>750 kr</b></li>
+          <li><span>Gelénaglar nytt set + spa pedikyr gellack<small>120 min</small></span><b>900 kr</b></li>
+          <li><span>Akrylnaglar nytt set + spa pedikyr gellack<small>120 min</small></span><b>950 kr</b></li>
+          <li><span>Nya naglar + nytt set volymfransar<small>150 min</small></span><b>1 100 kr</b></li>
+          <li><span>Ansiktsbehandling + hårtvätt + huvudmassage<small>70 min</small></span><b>700 kr</b></li>
+        </ul>
+      </details>
+
+      <details class="price-group">
+        <summary>Studentpris</summary>
+        <ul>
+          <li><span>Nytt set förlängning, naturell<small>50 min · visa studentkort</small></span><b>320 kr</b></li>
+          <li><span>Nytt set gelé förlängning med färg<small>60 min · visa studentkort</small></span><b>400 kr</b></li>
+        </ul>
+      </details>
+
+      <p class="note">Priser enligt Bokadirekt. Kontrollera alltid aktuellt pris vid bokning.</p>
+      <a class="btn btn-primary" href="https://www.bokadirekt.se/places/tjs-beauty-spa-nails-41441">Se hela prislistan och boka</a>
+    </div>
+  </section>
+
+  <!-- GALLERI 9:16 -->
+  <section class="gallery" id="bilder" aria-labelledby="bilder-h">
+    <div class="wrap">
+      <h2 id="bilder-h">Bilder</h2>
+      <p class="lead">Ett smakprov på vårt arbete. Fler bilder finns på Instagram.</p>
+    </div>
+
+    <div class="reel" role="list" tabindex="0" aria-label="Bildgalleri, scrolla i sidled">
+      <figure role="listitem">
+        <img src="images/naglar-svart-fransk.jpg" loading="lazy" width="640" height="1138" alt="Mandelformade naglar med svart fransk kant, svarta vågiga linjer och glitter">
+        <figcaption>Svart fransk med glitter</figcaption>
+      </figure>
+      <figure role="listitem">
+        <img src="images/naglar-vit-fransk.jpg" loading="lazy" width="640" height="1138" alt="Rosa naglar med vit fransk kant och en liten vit blomma">
+        <figcaption>Klassisk vit fransk med blomma</figcaption>
+      </figure>
+      <figure role="listitem">
+        <img src="images/fransar-volym.jpg" loading="lazy" width="640" height="1138" alt="Närbild på volymfransar och formade ögonbryn">
+        <figcaption>Volymfransar</figcaption>
+      </figure>
+    </div>
+
+    <div class="wrap more">
+      <a class="btn btn-ghost" href="https://www.instagram.com/tjsbeautyspanails/" rel="noopener">Se fler bilder på Instagram</a>
+    </div>
+  </section>
+
+  <!-- HITTA HIT -->
+  <section id="hitta-hit" aria-labelledby="hitta-h">
+    <div class="wrap visit-grid">
+      <div>
+        <h2 id="hitta-h">Hitta hit</h2>
+        <address>
+          TJ’s Beauty Spa &amp; Nails<br>
+          Fredsgatan 10<br>
+          212 12 Malmö
+        </address>
+        <div class="visit-actions">
+          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Fredsgatan+10,+212+12+Malmö" rel="noopener">Öppna i Google Maps</a>
+          <a class="btn btn-ghost" href="tel:+46728018888">072-801 88 88</a>
+        </div>
+      </div>
+
+      <div>
+        <h2>Öppettider</h2>
+        <dl class="hours">
+          <div><dt>Måndag – fredag</dt><dd>10:00 – 20:00</dd></div>
+          <div><dt>Lördag – söndag</dt><dd>10:00 – 18:00</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h3>TJ’s Beauty Spa &amp; Nails</h3>
+        <p>Naglar · Fransar · Fotvård · Spa<br>Skönhet med omtanke.</p>
+      </div>
+      <div>
+        <h3>Följ oss</h3>
+        <ul>
+          <li><a href="https://www.instagram.com/tjsbeautyspanails/" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.bokadirekt.se/places/tjs-beauty-spa-nails-41441" rel="noopener">Bokadirekt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Villkor</h3>
+        <ul>
+          <li><a href="https://help.bokadirekt.se/sv/articles/13856863-integritetspolicy" rel="noopener">Integritetspolicy</a></li>
+          <li><a href="https://help.bokadirekt.se/sv/collections/3411947-allmanna-villkor-och-policy-for-konsument-och-slutkund" rel="noopener">Bokningsvillkor</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 TJ’s Beauty Spa &amp; Nails, Malmö. Bokningar sker via Bokadirekt.</p>
+  </div>
+</footer>
+
+<!-- Sticky action bar (mobile) -->
+<nav class="actionbar" aria-label="Snabbval">
+  <a href="https://www.bokadirekt.se/places/tjs-beauty-spa-nails-41441">Boka tid</a>
+  <a href="tel:+46728018888">Ring</a>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=Fredsgatan+10,+212+12+Malmö" rel="noopener">Hitta hit</a>
+</nav>
+
+</body>
+</html>
